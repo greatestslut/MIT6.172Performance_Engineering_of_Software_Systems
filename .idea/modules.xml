@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/L1_Intro and Matrix Multiplication/L1_Intro and Matrix Multiplication.iml" filepath="$PROJECT_DIR$/L1_Intro and Matrix Multiplication/L1_Intro and Matrix Multiplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/L2_Bentley Rules for Optimizing Work/L2_Bentley Rules for Optimizing Work.iml" filepath="$PROJECT_DIR$/L2_Bentley Rules for Optimizing Work/L2_Bentley Rules for Optimizing Work.iml" />
       <module fileurl="file://$PROJECT_DIR$/MIT6.172.iml" filepath="$PROJECT_DIR$/MIT6.172.iml" />
     </modules>
   </component>

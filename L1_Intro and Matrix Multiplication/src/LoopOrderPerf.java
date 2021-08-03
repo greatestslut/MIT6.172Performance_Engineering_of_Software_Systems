@@ -18,7 +18,7 @@ public class LoopOrderPerf {
     System.out.println("i,j,k takes " + (end - start)+"ms");
   }
 
-  //the first loop order i,k,j 0ms
+  //the first loop order i,k,j 0ms great spatial locality
   private static void LoopOrderTest1() {
     int n = 100;
     int[][] A = new int[n][n];
