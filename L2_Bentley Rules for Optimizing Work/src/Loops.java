@@ -40,7 +40,7 @@ public class Loops {
     }
   }
 
-  //5.eliminating wasted iteration(modify loop bounds) for-i loop is more flexible
+  //5.eliminating wasted iteration(modify loop bounds) for-i loop is more flexible because the for-i loop has inner filtering layer
   //generally,I love for-each,a syntax sugar.however,classic for-loop execute the filter statement,then operate the loop statement,eventually run the adding part
   //10000000 11ms
   public static int normLoop5(int[] arr) {
