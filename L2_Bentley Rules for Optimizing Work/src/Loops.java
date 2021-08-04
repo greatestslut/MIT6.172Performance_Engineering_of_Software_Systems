@@ -1,6 +1,9 @@
 import java.util.*;
 
 public class Loops {
+  //Summary:1.for-i loop is just a special function. From decoupling point view, just write the loop-relevant calculation inside the function.
+  //        2.special parts.initialization,break check,advancement
+
   //1.hoisting
   public static void normLoop(List<Double> list) {
     if (list == null || list.size() <= 0) {
@@ -40,9 +43,9 @@ public class Loops {
     }
   }
 
-  //5.eliminating wasted iteration(modify loop bounds) for-i loop is more flexible because the for-i loop has inner filtering layer
-  //generally,I love for-each,a syntax sugar.however,classic for-loop execute the filter statement,then operate the loop statement,eventually run the adding part
-  //10000000 11ms
+  //5.eliminating wasted iteration(modify loop bounds) for-i has three parts initialization statement,exit-check predicate,advancement statement.
+  //when we need to exit loop,don't need to explicitly write this.
+  //10000000 6ms
   public static int normLoop5(int[] arr) {
     int count = 0;
     if (arr == null || arr.length == 0) {
@@ -50,14 +53,14 @@ public class Loops {
     }
     for (int a : arr) {
       if (a == 0) {
-        continue;
+        break;
       }
       count += a;
     }
     return count;
   }
 
-  //10000000 7ms
+  //10000000 6ms
   public static int modBndLoop(int[] arr) {
     int count = 0;
     if (arr == null || arr.length == 0) {
@@ -69,15 +72,33 @@ public class Loops {
     return count;
   }
 
+  /***
+   * 老大在实际开发中写的，将exit-loop predicate内容写在for循环语句中
+   */
+  //  for (int i = 0; count[0] < DEL_THRESHOLD_NUM && start && i < deleteSubDirs.length; i++) {
+  //    String curDelSubDir = FileUtils.GetCanonicalPath(deleteSubDirs[i]);
+  //    String processingDir = FileUtils.GetCanonicalPath(FileUtils.PathCombine(AppInfo.GetAppDataDirectory(), "data", DELETED_FOLDER_NAME, RSBDateTime.now().toString("yyyyMMddHH")));
+  //    if (Utilities.equalIgnoreCaseInvariant(curDelSubDir, processingDir)) continue;
+  //
+  //    FileUtils.walk(curDelSubDir, FileUtils.WALKORDER_POSTFIX, (path, isDirectory)->{
+  //      if (!start) {
+  //        return false;
+  //      }
+  //      try {
+  //        /*#if (isDirectory) Directory.Delete(path); else File.Delete(path);#*/
+  //        /*@*/if(new File(path).delete())/*@*/
+  //        count[0]++;
+  //      } catch (Throwable ex) {
+  //        logger.log(LogType.DEBUG, Utilities.formatString(LOG_UNABLE_DELETE_ITEM, path));
+  //      }
+  //      return count[0] < DEL_THRESHOLD_NUM;
+  //    });
+  //  }
   public static void main(String[] args) {
-    int[] ints = new int[10000000];
-    for (int i = 0; i < 10000000; i++) {
-      ints[i] = 1;
+    int[] ints = new int[3];
+    for (int i = 0; i < 0; i++) {
+      System.out.println(ints[i]);
     }
-    long start = System.currentTimeMillis();
-    normLoop5(ints);
-    long end = System.currentTimeMillis();
-    System.out.println("this procedure takes" + (end - start) + " ms");
   }
 
 
